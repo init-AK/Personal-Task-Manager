@@ -48,7 +48,7 @@ async function httpDeleteTask(req,res) {
     const taskId = req.params.id
     try {
         const result = await deleteTask(taskId)
-        console.log(result)
+        console.log(result.deletedCount === 1 ? 'Task deleted' : 'Failed deleting task.')
 
         if(result.deletedCount !== 1) {
           return res.status(404).json({  
